@@ -1,9 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const express = require("express");
+const cors = require("cors");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express()
 const port = process.env.PORT || 5000;
-require('dotenv').config()
+require("dotenv").config()
 
 
 app.use(cors())
@@ -35,7 +35,7 @@ async function run() {
         })
         app.post('/mytask', async (req, res) => {
             const user = req.body;
-            const result = await taskCollection.insertMany(user);
+            const result = await taskCollection.insertOne(user);
             console.log(result);
             res.send(result);
         })
